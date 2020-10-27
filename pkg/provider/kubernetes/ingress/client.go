@@ -63,7 +63,7 @@ func detectChanges(oldObj, newObj interface{}) bool {
 	switch obj.(type) {
 	case *corev1.Endpoints:
 		if endpointsEquivalent(oldObj.(*corev1.Endpoints), newObj.(*corev1.Endpoints)) {
-			log.Info("endpoint " + newObj.(*corev1.Endpoints).Name + " has no changes, ignoring")
+			log.Debugf("endpoint %s has no changes, ignoring", newObj.(*corev1.Endpoints).Name)
 			return false
 		}
 	}
